@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textOnPrimaryWhite"
+    android:orientation="vertical"
+    tools:context=".RedeemPageActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            style="@style/Widget.Sunfit.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Redemption Options">
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Steps For Redemption"
+            android:textColor="#229aef"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@id/total_available_stepCount_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="16dp"
+            android:text="number of steps"
+            android:textColor="@color/colorSecondaryDark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/darker_gray" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/coconutWater_imageView"
+            android:layout_width="51dp"
+            android:layout_height="51dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/coconut" />
+
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/coconutWater_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toRightOf="@id/coconutWater_imageView"
+            android:text="Coconut Water"
+            android:textColor="@color/colorSecondaryDark"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_Coconut_Water"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/coconutWater_textView"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:background="@color/colorSecondary"
+            android:text="Redeem"
+            android:textColor="@color/textOnSecondary" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/coconutWater_textView"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@id/coconutWater_imageView"
+            android:text="@string/totalSteps_required_for_coconutWater"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp"
+            android:textStyle="italic" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/darker_gray" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/coffee_imageView"
+            android:layout_width="51dp"
+            android:layout_height="51dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/starbucks" />
+
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/coffee_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toRightOf="@id/coffee_imageView"
+            android:text="Starbucks Coffee"
+            android:textColor="@color/colorSecondaryDark"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_Coffee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:background="@color/colorSecondary"
+            android:text="Redeem"
+            android:textColor="@color/textOnSecondary" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/coffee_textView"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@id/coffee_imageView"
+            android:text="@string/totalSteps_required_for_coffee"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp"
+            android:textStyle="italic" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/darker_gray" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/smoothie_imageView"
+            android:layout_width="51dp"
+            android:layout_height="51dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/smoothie" />
+
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/smoothie_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toRightOf="@id/smoothie_imageView"
+            android:text="Smoothie"
+            android:textColor="@color/colorSecondaryDark"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button_Smothie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:background="@color/colorSecondary"
+            android:text="Redeem"
+            android:textColor="@color/textOnSecondary" />
+
+        <android.support.v7.widget.AppCompatTextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/smoothie_textView"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@id/smoothie_imageView"
+            android:text="@string/totalSteps_required_for_smoothie"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp"
+            android:textStyle="italic" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/darker_gray" />
+
+
+</LinearLayout>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.fitbit.sampleandroidoauth2.UserDataActivity">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.fitbit.api.models.User" />
+
+        <variable
+            name="loading"
+            type="java.lang.Boolean" />
+
+        <variable
+            name="scopesGranted"
+            type="java.lang.String" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/textOnPrimaryWhite"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                style="@style/Widget.Sunfit.Toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:title="Steps Summary">
+
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="@{loading ? View.GONE : View.VISIBLE}">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </android.support.v4.view.ViewPager>
+    </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Steps"
+                android:textColor="#229aef"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/colorSecondary"
+                android:text="Sync Up"
+                android:onClick="onSyncClick"
+                android:textColor="@color/textOnSecondary" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@android:color/darker_gray" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/todayStep_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Today's Steps"
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="16sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/today_stepCount_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="16dp"
+                android:text="number of steps"
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/today_steps_last_refreshed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/todayStep_textView"
+                android:layout_marginLeft="16dp"
+                android:text="@string/last_refreshed_today_steps"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="10sp"
+                android:textStyle="italic" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:background="@android:color/darker_gray" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/totalRedeemedSteps_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Total Redeemed Steps"
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="16sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/total_redeemed_stepCount_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="16dp"
+                android:text="number of steps"
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/toal_redeemed_steps_last_refreshed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/totalRedeemedSteps_textView"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/last_refreshed_total_redeemed_steps"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="10sp"
+                android:textStyle="italic" />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:background="@android:color/darker_gray" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/stepsAvailableForRedemption_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Steps For Redemption"
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="16sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/total_available_stepCount_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="16dp"
+                android:text="number of steps"
+                android:textColor="@color/colorSecondaryDark"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/total_stepsAvailable_last_refreshed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/stepsAvailableForRedemption_textView"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/last_refreshed_totalAvailable_redeemed_steps"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="10sp"
+                android:textStyle="italic" />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:background="@android:color/darker_gray" />
+
+        <Button
+            android:id="@+id/logout_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="48dp"
+            android:background="@color/colorSecondary"
+            android:onClick="onLogoutClick"
+            android:text="redeem now"
+            android:textColor="@color/textOnSecondary" />
+
+
+    </LinearLayout>
+
+</layout>
